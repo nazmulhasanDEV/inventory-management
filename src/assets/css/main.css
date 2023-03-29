@@ -1,0 +1,7 @@
+@import url("./nav-bar/sidebar.css");
+@import url("./nav-bar/top-nav.css");
+
+body {
+  background-color: red;
+  overflow: hidden;
+}

@@ -1,8 +1,11 @@
+import React, { useState } from "react";
+import NavigationBar from "./components/navigation-bar/Index";
+
 function App() {
   return (
-    <div className="App">
-      <p>started</p>
-    </div>
+    <>
+      <NavigationBar />
+    </>
   );
 }
 
