@@ -8,6 +8,9 @@ import { BrowserRouter } from "react-router-dom";
 // bootstrap css
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// react-toasify
+import "react-toastify/dist/ReactToastify.css";
+
 // custom css files
 import "./assets/css/main.css";
 

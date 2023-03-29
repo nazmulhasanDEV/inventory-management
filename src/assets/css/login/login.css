@@ -1,0 +1,24 @@
+.login-register {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #313a46;
+}
+
+.login-register .login-register-form {
+  min-width: 380px;
+  max-width: 380px;
+  top: 45%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px;
+}
+
+.login-btn {
+  background-color: #313a46;
+  color: white;
+  border: none !important;
+  outline: none !important;
+}
