@@ -1,5 +1,6 @@
-import Header from "./Header";
+import Header from "./Topbar";
 import SideBar from "./SideBar";
+import Dashboard from "../dashboard/Index";
 
 const NavigationBar = () => {
   return (
@@ -7,11 +8,8 @@ const NavigationBar = () => {
       <div className="d-flex">
         <div className="sidenav">
           <SideBar />
+          {/* <Dashboard /> */}
         </div>
-
-        {/* <div className="top-navbar">
-          <Header />
-        </div> */}
       </div>
     </>
   );

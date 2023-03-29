@@ -18,10 +18,16 @@
 }
 
 .top-navbar nav form input {
-  border: 1px solid #313a46 !important;
+  border: 1px solid #6169d0 !important;
   outline: none !important;
 }
 
 .top-navbar nav form button {
-  border: 1px solid #313a46 !important;
+  border: 1px solid #6169d0 !important;
+  color: #313a46;
+}
+
+.top-navbar nav form button:hover {
+  background-color: #6169d0;
+  color: white;
 }
