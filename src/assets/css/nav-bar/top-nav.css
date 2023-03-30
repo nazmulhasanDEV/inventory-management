@@ -1,11 +1,12 @@
 .top-navbar {
   overflow: hidden !important;
+  /* position: fixed; */
 }
 
 .top-navbar nav {
   position: relative;
   width: 100vw;
-  background-color: #6f7b8b;
+  background-color: #ffffff;
 }
 
 .top-navbar nav .toggle-collapse-btn {

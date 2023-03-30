@@ -1,8 +1,10 @@
 @import url("./nav-bar/sidebar.css");
 @import url("./nav-bar/top-nav.css");
 @import url("./login/login.css");
+@import url("./dashboard/dashboard.css");
 
 body {
-  /* background-color: red; */
-  overflow: hidden;
+  background-color: rgba(49, 58, 70, 0.05);
+  overflow-x: hidden;
+  overflow-y: scroll;
 }

@@ -18,7 +18,7 @@ const NavigationBar = ({ children }) => {
 
         <div style={{ position: "relative" }}>
           {!location?.pathname?.includes("/login") && <Topbar />}
-          {children}
+          <div className="container content-section">{children}</div>
         </div>
       </div>
     </NavbarContext.Provider>

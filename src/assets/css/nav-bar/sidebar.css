@@ -2,7 +2,7 @@
   background-color: #313a46;
   height: 100vh;
   max-height: 100vh;
-  position: relative;
+  /* position: fixed; */
 }
 
 /* .admin-profile {

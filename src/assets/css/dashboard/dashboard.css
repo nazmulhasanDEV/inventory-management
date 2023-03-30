@@ -1,0 +1,82 @@
+.content-section {
+  position: fixed;
+  overflow-x: hidden !important;
+  overflow-y: scroll;
+  /* background-color: red; */
+  width: 100%;
+  height: 100%;
+}
+
+.dashboard-section {
+  /* padding: 15px; */
+}
+
+.dashboard-cards .card {
+  position: relative;
+  border: none !important;
+  background-color: white;
+  color: #313a46 !important;
+}
+
+.dashboard-cards .card .card-title {
+  font-size: 14px;
+}
+
+.dashboard-cards .card .card-body .icon {
+  position: absolute;
+  right: 25px;
+  top: 20%;
+  color: rgba(49, 58, 70, 0.5);
+  width: 40px;
+  height: 40px;
+}
+
+.dashboard-cards .card .link {
+  text-decoration: none !important;
+  font-size: 12px;
+}
+
+.product-quantity-chart {
+  background-color: white;
+  position: relative;
+  padding: 10px;
+}
+
+.product-quantity-chart .chart {
+  width: 80% !important;
+  height: 400px !important;
+  position: relative;
+}
+
+.sales-summary-chart {
+  background-color: white;
+  position: relative;
+  padding: 10px;
+}
+
+.sales-summary-chart .chart {
+  width: 100% !important;
+  height: 350px !important;
+  position: relative;
+}
+
+.sales-summary-chart .card {
+  background-color: #f4f4f5;
+}
+
+.product-consumption-summary-per-day {
+  /* width: 95% !important; */
+  background-color: white;
+  position: relative;
+  padding: 10px;
+}
+
+.product-consumption-summary-per-day .chart {
+  width: 100% !important;
+  height: 350px !important;
+  position: relative;
+}
+
+.product-consumption-summary-per-day .card {
+  background-color: #f4f4f5;
+}

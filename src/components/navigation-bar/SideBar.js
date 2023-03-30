@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { Link } from "react-router-dom";
 import { X } from "react-feather";
 import NavbarContext from "./context/NavbarContext";
 import avatar from "../../assets/images/avatar.webp";
@@ -65,10 +66,12 @@ const SideBar = () => {
               },
             }}
           >
-            <MenuItem> Dashboard </MenuItem>
-            <SubMenu label="Charts">
-              <MenuItem> Pie charts </MenuItem>
-              <MenuItem> Line charts </MenuItem>
+            <MenuItem component={<Link to="/" />}> Dashboard </MenuItem>
+            <SubMenu label="Users">
+              <MenuItem component={<Link to="/users" />}>User/Admin</MenuItem>
+              <MenuItem component={<Link to="/customer-list" />}>
+                Customers
+              </MenuItem>
             </SubMenu>
 
             <SubMenu label="Charts">
