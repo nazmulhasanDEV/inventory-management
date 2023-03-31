@@ -151,7 +151,7 @@ const AdminUserList = () => {
               </div> */}
                 <ul className="list-group list-group-flush text-center">
                   <h4 class="list-group-item">{currentUserDetails?.name}</h4>
-                  <p>Admin</p>
+                  <p style={{ marginTop: "-10px" }}>Admin</p>
                   <h6 class="list-group-item">
                     <strong>Email: </strong>
                     {currentUserDetails?.email}

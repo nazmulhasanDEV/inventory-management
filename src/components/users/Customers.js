@@ -48,7 +48,7 @@ const CustomerList = () => {
       if (
         size(tableData?.filter((item) => item?.email === newCustomerInfo.email))
       ) {
-        showToastMessage("warning", "User already exists with this email");
+        showToastMessage("warning", "Customer already exists with this email");
       } else {
         setTableData([
           {
@@ -63,7 +63,7 @@ const CustomerList = () => {
         ]);
         // setNewCustomerInfo({});
         modalCloseBtn?.click();
-        showToastMessage("success", "New user has been added successfully");
+        showToastMessage("success", "New customer has been added successfully");
       }
     } else {
       showToastMessage("warning", "Something went wrong");

@@ -73,6 +73,10 @@ const SideBar = () => {
                 Customers
               </MenuItem>
             </SubMenu>
+
+            <SubMenu label="Product">
+              <MenuItem component={<Link to="/products" />}>Products</MenuItem>
+            </SubMenu>
           </Menu>
         </Sidebar>
       </div>

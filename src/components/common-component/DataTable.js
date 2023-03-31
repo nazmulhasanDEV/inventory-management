@@ -1,6 +1,6 @@
 import * as React from "react";
 import { size } from "lodash";
-import { Eye, UserPlus } from "react-feather";
+import { Eye, UserPlus, Edit, Delete } from "react-feather";
 import AppContext from "../../app-context/AppContext";
 
 const DataTable = ({
@@ -9,16 +9,43 @@ const DataTable = ({
   actionBtnTypes,
   dataTableBtnProps,
 }) => {
-  console.log();
+  const [limit, setLimit] = React.useState(2);
+
+  const displayNumberOfProductsHandler = (event) => {
+    setLimit(Number(event.target.value));
+  };
   const appContext = React.useContext(AppContext);
   const { modalProps, setModalProps } = appContext;
 
   return (
     <div className="container data-table">
+      <div className="row bg-backround-body">
+        <div className="col-md-12 mb-3">
+          {dataTableBtnProps && dataTableBtnProps}
+        </div>
+      </div>
       <div className="row">
         <div className="col-md-12">
-          <div className="search-bar text-right mb-2">
-            {dataTableBtnProps && dataTableBtnProps}
+          <div className="search-bar text-right mb-5">
+            <div className="select-data-limit-section">
+              <p className="me-2">Display </p>
+              <div>
+                <select
+                  class="form-select"
+                  onChange={displayNumberOfProductsHandler}
+                >
+                  <option selected>Select</option>
+                  <option value="5">5</option>
+                  <option value="7">7</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                </select>
+              </div>
+              <p className="ms-2"> products</p>
+              {/* <p className="ms-2">
+                {size(tableData)} items of {size(tableData)} found!
+              </p> */}
+            </div>
             <input type="text" className="search-bar" placeholder="Search" />
           </div>
           <table class="table">
@@ -34,7 +61,7 @@ const DataTable = ({
             </thead>
             <tbody>
               {size(tableData)
-                ? tableData?.map((data, index) => {
+                ? tableData?.slice(0, limit)?.map((data, index) => {
                     return (
                       <tr>
                         {size(tableHeader)
@@ -70,6 +97,18 @@ const DataTable = ({
                                 );
                               }
 
+                              if (Object.entries(item)[0][0] === "product") {
+                                return (
+                                  <td>
+                                    <span className="badge rounded-pill text-bg-danger">
+                                      {data[
+                                        Object.entries(item)[0][0]
+                                      ]?.toUpperCase()}
+                                    </span>
+                                  </td>
+                                );
+                              }
+
                               return (
                                 <td>{data[Object.entries(item)[0][0]]}</td>
                               );
@@ -77,18 +116,36 @@ const DataTable = ({
                           : ""}
                         <td>
                           {actionBtnTypes?.includes("user-details") && (
-                            <button
-                              key={index}
-                              className="details-btn"
-                              data-bs-toggle="modal"
-                              data-bs-target="#user-details"
-                              data-bs-whatever="@mdo"
-                              onClick={() =>
-                                setModalProps({ userId: data?.ID })
-                              }
-                            >
-                              <Eye />
-                            </button>
+                            <>
+                              <button
+                                key={index}
+                                className="details-btn"
+                                data-bs-toggle="modal"
+                                data-bs-target="#user-details"
+                                data-bs-whatever="@mdo"
+                                onClick={() =>
+                                  setModalProps({ userId: data?.ID })
+                                }
+                              >
+                                <Eye />
+                              </button>
+                              <button
+                                className="details-btn"
+                                onClick={() =>
+                                  setModalProps({ userId: data?.ID })
+                                }
+                              >
+                                <Edit />
+                              </button>
+                              <button
+                                className="details-btn"
+                                onClick={() =>
+                                  setModalProps({ userId: data?.ID })
+                                }
+                              >
+                                <Delete style={{ color: "red" }} />
+                              </button>
+                            </>
                           )}
                         </td>
                       </tr>
