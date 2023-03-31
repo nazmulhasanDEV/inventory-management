@@ -1,0 +1,24 @@
+.user-details-card .card {
+  border: none !important;
+}
+
+.user-details-card .card ul h6 {
+  /* border: none !important; */
+  /* background-color: #198754; */
+  /* color: white; */
+}
+
+.user-details-card .card ul h4 {
+  border: none !important;
+  /* background-color: #198754; */
+  /* color: white; */
+}
+
+.user-details-card .card ul h6 {
+  border: none !important;
+  margin-bottom: -10px;
+}
+
+.user-details-card .card .modal-footer {
+  border: none !important;
+}

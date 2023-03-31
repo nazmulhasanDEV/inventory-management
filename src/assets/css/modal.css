@@ -1,0 +1,15 @@
+.modal {
+  width: 100% !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  position: absolute !important;
+}
+
+.modal-backdrop {
+  display: none !important;
+  /* z-index: 1 !important; */
+}
+
+.modal-header h1 {
+  color: #313a46;
+}

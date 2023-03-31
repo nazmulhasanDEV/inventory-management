@@ -1,0 +1,35 @@
+.data-table {
+  background-color: white;
+  padding: 15px 15px 15px 15px;
+}
+
+.details-btn {
+  border: none;
+  outline: none;
+  background-color: white;
+  color: #313a46;
+  float: left;
+  border-radius: 3px;
+}
+
+.search-bar {
+  width: 100%;
+  /* background-color: red; */
+  position: relative;
+}
+
+.search-bar input {
+  width: 220px;
+  height: 35px;
+  outline: none;
+  border: 1px solid #198754;
+  text-indent: 5px;
+  float: right;
+  clear: both;
+  border-radius: 3px;
+}
+
+.z-index {
+  /* z-index: 233453450 !important; */
+  /* position: absolute; */
+}
