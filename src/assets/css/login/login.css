@@ -4,7 +4,8 @@
   height: 100%;
   left: 0 !important;
   right: 0 !important;
-  background-color: #313a46;
+  /* background-color: #313a46; */
+  background-color: rgba(0, 0, 0, 0.1);
   overflow: hidden !important;
 }
 
