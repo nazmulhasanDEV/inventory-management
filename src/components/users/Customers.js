@@ -111,7 +111,7 @@ const CustomerList = () => {
         dataTableBtnProps={<AddNewCustomerBtn />}
       />
       <AppModal id="user-details">
-        <div class="modal-dialog user-details-card">
+        <div class="modal-dialog user-details-card modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               {/* <h1 class="modal-title fs-5" id="exampleModalLabel">
@@ -133,17 +133,9 @@ const CustomerList = () => {
                     alt="..."
                   />
                 </div>
-
-                {/* <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div> */}
                 <ul className="list-group list-group-flush text-center">
                   <h4 class="list-group-item">{currentUserDetails?.name}</h4>
-                  <p>Admin</p>
+                  <p style={{ marginTop: "-10px" }}>Member since 2015</p>
                   <h6 class="list-group-item">
                     <strong>Email: </strong>
                     {currentUserDetails?.email}
@@ -152,6 +144,49 @@ const CustomerList = () => {
                     <strong>Phone: </strong> {currentUserDetails?.phone}
                   </h6>
                 </ul>
+
+                <div class="card-body">
+                  <div className="row">
+                    <div className="col-6">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          <b>Status: </b>
+                          <span
+                            className={`badge rounded-pill text-bg-${
+                              currentUserDetails.status !== "active"
+                                ? "warning"
+                                : "success"
+                            }`}
+                          >
+                            {currentUserDetails.status?.toUpperCase()}
+                          </span>
+                        </li>
+                        <li class="list-group-item">
+                          <b>Location: </b>
+                          {currentUserDetails?.location}
+                        </li>
+                        <li class="list-group-item">
+                          <b>Last order: </b> March 20, 2023
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="col-6">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          <b>Orders: </b> {currentUserDetails?.total_order}
+                        </li>
+                        <li class="list-group-item">
+                          <b>Canceled: </b> {currentUserDetails?.canceled}
+                        </li>
+                        <li class="list-group-item">
+                          <b>Purchased: </b>
+                          {currentUserDetails?.total_purchased}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
                 {/* <div class="card-body">
                 <a href="#" class="card-link">
                   Card link
