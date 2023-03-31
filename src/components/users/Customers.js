@@ -12,20 +12,17 @@ import { customerList } from "../common-component/utils/dummyData";
 import { cutomersTableHeader } from "../common-component/utils/tableHeaders";
 
 const CustomerList = () => {
-  //   useEffect(() => {
-  //     fetch("https://dummyjson.com/users")
-  //       .then((res) => res.json())
-  //       .then(console.log);
-  //   }, []);
-
   const [currentUserDetails, setCurrentUserDetails] = useState({});
-  const [newUserInfo, setNewUserInfo] = useState({
+  const [newCustomerInfo, setNewCustomerInfo] = useState({
+    ID: "",
     name: "",
     email: "",
     phone: "",
-    is_admin: "",
-    is_staff: "",
+    location: "",
+    status: "",
   });
+
+  console.log(newCustomerInfo);
   const appContext = useContext(AppContext);
   const { modalProps, setModalProps } = appContext;
 
@@ -33,43 +30,38 @@ const CustomerList = () => {
 
   const [tableData, setTableData] = useState(customerList);
 
-  const addNewUserOnChangeHandler = (event) => {
-    if (event.target.name !== "is_admin") {
-      setNewUserInfo({
-        ...newUserInfo,
-        [event.target.name]: event.target.value,
-      });
-    } else {
-      if (event.target.value === "admin") {
-        setNewUserInfo({ ...newUserInfo, is_admin: "Yes", is_staff: "No" });
-      } else {
-        setNewUserInfo({ ...newUserInfo, is_staff: "Yes", is_admin: "No" });
-      }
-    }
+  const addNewCustomerOnChangeHandler = (event) => {
+    setNewCustomerInfo({
+      ...newCustomerInfo,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleAddNewUser = () => {
     if (
-      newUserInfo?.email &&
-      newUserInfo?.is_admin &&
-      newUserInfo?.is_staff &&
-      newUserInfo?.phone &&
-      newUserInfo?.name
+      newCustomerInfo?.email &&
+      newCustomerInfo?.location &&
+      newCustomerInfo?.status &&
+      newCustomerInfo?.phone &&
+      newCustomerInfo?.name
     ) {
       if (
-        size(tableData?.filter((item) => item?.email === newUserInfo.email))
+        size(tableData?.filter((item) => item?.email === newCustomerInfo.email))
       ) {
         showToastMessage("warning", "User already exists with this email");
       } else {
         setTableData([
           {
-            ...newUserInfo,
+            ...newCustomerInfo,
             ID: uniqueId(),
+            total_order: 0,
+            total_purchased: "$0",
+            canceled: 0,
             avatar: "https://i.pravatar.cc/150?img=68",
           },
           ...tableData,
         ]);
-        setNewUserInfo({});
+        // setNewCustomerInfo({});
         modalCloseBtn?.click();
         showToastMessage("success", "New user has been added successfully");
       }
@@ -192,7 +184,7 @@ const CustomerList = () => {
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Add new user
+                Add new customer
               </h1>
               <button
                 type="button"
@@ -205,59 +197,75 @@ const CustomerList = () => {
               <form>
                 <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">
-                    Name
+                    Name*
                   </label>
                   <input
                     type="text"
                     name="name"
                     class="form-control"
                     id="recipient-name"
-                    onChange={addNewUserOnChangeHandler}
-                    value={newUserInfo?.name}
+                    onChange={addNewCustomerOnChangeHandler}
+                    value={newCustomerInfo?.name}
+                    placeholder="Name..."
                   />
                 </div>
 
                 <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">
-                    Email
+                    Email*
                   </label>
                   <input
                     type="email"
                     name="email"
                     class="form-control"
                     id="recipient-name"
-                    onChange={addNewUserOnChangeHandler}
-                    value={newUserInfo?.email}
+                    onChange={addNewCustomerOnChangeHandler}
+                    value={newCustomerInfo?.email}
+                    placeholder="Email..."
                   />
                 </div>
 
                 <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">
-                    Phone
+                    Phone*
                   </label>
                   <input
                     type="text"
                     name="phone"
                     class="form-control"
                     id="recipient-name"
-                    onChange={addNewUserOnChangeHandler}
-                    value={newUserInfo?.phone}
+                    onChange={addNewCustomerOnChangeHandler}
+                    value={newCustomerInfo?.phone}
+                    placeholder="Phone..."
                   />
                 </div>
 
                 <div class="mb-3">
+                  <label for="message-text" class="col-form-label">
+                    Address/Location*
+                  </label>
+                  <textarea
+                    class="form-control"
+                    id="message-text"
+                    placeholder="Address..."
+                    name="location"
+                    onChange={addNewCustomerOnChangeHandler}
+                  ></textarea>
+                </div>
+
+                <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">
-                    Role
+                    Satus*
                   </label>
                   <select
                     class="form-select"
-                    name="is_admin"
+                    name="status"
                     aria-label="Default select example"
-                    onChange={addNewUserOnChangeHandler}
+                    onChange={addNewCustomerOnChangeHandler}
                   >
-                    <option selected>Specify role</option>
-                    <option value="admin">Admin</option>
-                    <option value="staff">Staff</option>
+                    <option selected>Specify status</option>
+                    <option value="active">Active</option>
+                    <option value="pending">Pending</option>
                   </select>
                 </div>
               </form>
