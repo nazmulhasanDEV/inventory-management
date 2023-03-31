@@ -42,7 +42,7 @@ const DataTable = ({
                   <option value="30">30</option>
                 </select>
               </div>
-              <p className="ms-2"> products</p>
+              <p className="ms-2"> items</p>
               {/* <p className="ms-2">
                 {size(tableData)} items of {size(tableData)} found!
               </p> */}

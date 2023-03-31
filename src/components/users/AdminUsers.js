@@ -115,7 +115,7 @@ const AdminUserList = () => {
       <DataTable
         tableHeader={usersAdminsTableHeader}
         tableData={tableData}
-        actionBtnTypes={["user-details"]}
+        actionBtnTypes={["details"]}
         dataTableBtnProps={<AddNewUserBtn />}
       />
       <AppModal id="user-details">
