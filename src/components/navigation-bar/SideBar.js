@@ -69,18 +69,10 @@ const SideBar = () => {
             <MenuItem component={<Link to="/" />}> Dashboard </MenuItem>
             <SubMenu label="Users">
               <MenuItem component={<Link to="/users" />}>User/Admin</MenuItem>
-              <MenuItem component={<Link to="/customer-list" />}>
+              <MenuItem component={<Link to="/customers" />}>
                 Customers
               </MenuItem>
             </SubMenu>
-
-            <SubMenu label="Charts">
-              <MenuItem> Pie charts </MenuItem>
-              <MenuItem> Line charts </MenuItem>
-            </SubMenu>
-
-            <MenuItem> Documentation </MenuItem>
-            <MenuItem> Calendar </MenuItem>
           </Menu>
         </Sidebar>
       </div>

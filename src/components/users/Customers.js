@@ -8,10 +8,10 @@ import avatar from "../../assets/images/avatar.webp";
 import AppContext from "../../app-context/AppContext";
 import { uniqueId } from "lodash";
 import { showToastMessage } from "../common-component/utils/toastMessage";
-import { userList } from "../common-component/utils/dummyData";
-import { usersAdminsTableHeader } from "../common-component/utils/tableHeaders";
+import { customerList } from "../common-component/utils/dummyData";
+import { cutomersTableHeader } from "../common-component/utils/tableHeaders";
 
-const AdminUserList = () => {
+const CustomerList = () => {
   //   useEffect(() => {
   //     fetch("https://dummyjson.com/users")
   //       .then((res) => res.json())
@@ -31,7 +31,7 @@ const AdminUserList = () => {
 
   const modalCloseBtn = document.getElementById("close-add-new-user-btn");
 
-  const [tableData, setTableData] = useState(userList);
+  const [tableData, setTableData] = useState(customerList);
 
   const addNewUserOnChangeHandler = (event) => {
     if (event.target.name !== "is_admin") {
@@ -84,18 +84,18 @@ const AdminUserList = () => {
     });
   }, [modalProps]);
 
-  const AddNewUserBtn = () => {
+  const AddNewCustomerBtn = () => {
     return (
       <>
         <button
           // key={index}
-          className="add-new-user-btn btn-bg-success"
+          className="btn-bg-success btn-180 "
           data-bs-toggle="modal"
           data-bs-target="#add-new-user"
           data-bs-whatever="@mdo"
           // onClick={() => setModalProps({ userId: data?.ID })}
         >
-          <UserPlus /> Add new user
+          <UserPlus /> Add new customer
         </button>
       </>
     );
@@ -107,16 +107,16 @@ const AdminUserList = () => {
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item active" aria-current="page">
-              Users
+              Customers
             </li>
           </ol>
         </nav>
       </div>
       <DataTable
-        tableHeader={usersAdminsTableHeader}
+        tableHeader={cutomersTableHeader}
         tableData={tableData}
         actionBtnTypes={["user-details"]}
-        dataTableBtnProps={<AddNewUserBtn />}
+        dataTableBtnProps={<AddNewCustomerBtn />}
       />
       <AppModal id="user-details">
         <div class="modal-dialog user-details-card">
@@ -286,4 +286,4 @@ const AdminUserList = () => {
   );
 };
 
-export default AdminUserList;
+export default CustomerList;

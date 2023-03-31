@@ -39,6 +39,37 @@ const DataTable = ({
                       <tr>
                         {size(tableHeader)
                           ? tableHeader?.map((item) => {
+                              // added badge when table header indicates the status
+                              if (
+                                Object.entries(item)[0][0] === "status" &&
+                                data[Object.entries(item)[0][0]] === "active"
+                              ) {
+                                return (
+                                  <td>
+                                    <span className="badge rounded-pill text-bg-success">
+                                      {data[
+                                        Object.entries(item)[0][0]
+                                      ]?.toUpperCase()}
+                                    </span>
+                                  </td>
+                                );
+                              }
+
+                              if (
+                                Object.entries(item)[0][0] === "status" &&
+                                data[Object.entries(item)[0][0]] !== "active"
+                              ) {
+                                return (
+                                  <td>
+                                    <span className="badge rounded-pill text-bg-danger">
+                                      {data[
+                                        Object.entries(item)[0][0]
+                                      ]?.toUpperCase()}
+                                    </span>
+                                  </td>
+                                );
+                              }
+
                               return (
                                 <td>{data[Object.entries(item)[0][0]]}</td>
                               );

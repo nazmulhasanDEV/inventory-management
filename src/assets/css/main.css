@@ -27,3 +27,7 @@ body {
   padding: 5px;
   width: 150px;
 }
+
+.btn-180 {
+  width: 200px !important;
+}
