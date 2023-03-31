@@ -106,7 +106,7 @@ const ProductList = () => {
       <DataTable
         tableHeader={productsTableHeader}
         tableData={tableData}
-        actionBtnTypes={["details", "edit", "delete"]}
+        actionBtnTypes={["edit", "delete"]}
         dataTableBtnProps={<AddNewCustomerBtn />}
       />
 
@@ -141,37 +141,6 @@ const ProductList = () => {
                 Delete
               </button>
             </div>
-          </div>
-        </div>
-      </AppModal>
-
-      <AppModal id="user-details">
-        <div class="modal-dialog user-details-card modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              {/* <h1 class="modal-title fs-5" id="exampleModalLabel">
-              User
-            </h1> */}
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body"></div>
-            {/* <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">
-              Send message
-            </button>
-          </div> */}
           </div>
         </div>
       </AppModal>
@@ -248,7 +217,8 @@ const ProductList = () => {
                     Price*
                   </label>
                   <input
-                    type="text"
+                    type="number"
+                    step="0.001"
                     name="price"
                     class="form-control"
                     id="recipient-name"
@@ -263,7 +233,7 @@ const ProductList = () => {
                     Available in stock*
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     name="available_in_stock"
                     class="form-control"
                     id="recipient-name"
