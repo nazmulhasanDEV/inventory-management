@@ -107,7 +107,7 @@ const CustomerList = () => {
       <DataTable
         tableHeader={cutomersTableHeader}
         tableData={tableData}
-        actionBtnTypes={["user-details"]}
+        actionBtnTypes={["details"]}
         dataTableBtnProps={<AddNewCustomerBtn />}
       />
       <AppModal id="user-details">

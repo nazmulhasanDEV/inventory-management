@@ -10,6 +10,7 @@ import { uniqueId } from "lodash";
 import { showToastMessage } from "../common-component/utils/toastMessage";
 import { productList } from "../common-component/utils/dummyData";
 import { productsTableHeader } from "../common-component/utils/tableHeaders";
+import { modalCloseById } from "../common-component/utils/appHelper";
 
 const ProductList = () => {
   const [currentProductDetails, setCurrentProductDetails] = useState({});
@@ -31,6 +32,7 @@ const ProductList = () => {
 
   const [tableData, setTableData] = useState(productList);
 
+  console.log(modalProps);
   const addNewProductOnChangeHandler = (event) => {
     setNewProductInfo({
       ...newProductInfo,
@@ -63,11 +65,15 @@ const ProductList = () => {
     }
   };
 
-  //   useEffect(() => {
-  //     setCurrentUserDetails({
-  //       ...tableData?.find((item) => item?.ID === modalProps?.userId),
-  //     });
-  //   }, [modalProps]);
+  const deleteProductHandler = () => {
+    if (modalProps?.context && modalProps?.context === "delete") {
+      setTableData([
+        ...tableData?.filter((item) => item?.ID !== modalProps?.productId),
+      ]);
+    }
+    modalCloseById("close-delete-btn");
+    showToastMessage("success", "Product has been deleted successfully");
+  };
 
   const AddNewCustomerBtn = () => {
     return (
@@ -100,9 +106,44 @@ const ProductList = () => {
       <DataTable
         tableHeader={productsTableHeader}
         tableData={tableData}
-        actionBtnTypes={["user-details"]}
+        actionBtnTypes={["details", "edit", "delete"]}
         dataTableBtnProps={<AddNewCustomerBtn />}
       />
+
+      <AppModal id="delete-item">
+        <div class="modal-dialog user-details-card ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h6 class="modal-title fs-5" id="exampleModalLabel">
+                Are you sure want to delete this item?
+              </h6>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="close-delete-btn"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                onClick={() => deleteProductHandler()}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </AppModal>
 
       {/* app modal for adding new user/admin */}
       <AppModal id="add-new-user">

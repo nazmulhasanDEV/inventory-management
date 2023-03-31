@@ -9,6 +9,7 @@ const DataTable = ({
   actionBtnTypes,
   dataTableBtnProps,
 }) => {
+  console.log(tableData);
   const [limit, setLimit] = React.useState(2);
 
   const displayNumberOfProductsHandler = (event) => {
@@ -115,7 +116,7 @@ const DataTable = ({
                             })
                           : ""}
                         <td>
-                          {actionBtnTypes?.includes("user-details") && (
+                          {actionBtnTypes?.includes("details") && (
                             <>
                               <button
                                 key={index}
@@ -129,6 +130,11 @@ const DataTable = ({
                               >
                                 <Eye />
                               </button>
+                            </>
+                          )}
+
+                          {actionBtnTypes?.includes("edit") && (
+                            <>
                               <button
                                 className="details-btn"
                                 onClick={() =>
@@ -137,10 +143,20 @@ const DataTable = ({
                               >
                                 <Edit />
                               </button>
+                            </>
+                          )}
+                          {actionBtnTypes?.includes("delete") && (
+                            <>
                               <button
+                                data-bs-toggle="modal"
+                                data-bs-target="#delete-item"
+                                data-bs-whatever="@mdo"
                                 className="details-btn"
                                 onClick={() =>
-                                  setModalProps({ userId: data?.ID })
+                                  setModalProps({
+                                    productId: data?.ID,
+                                    context: "delete",
+                                  })
                                 }
                               >
                                 <Delete style={{ color: "red" }} />
